@@ -9,8 +9,9 @@ print(model_name)
 info = sage.describe_training_job(TrainingJobName=job_name)
 model_data = info['ModelArtifacts']['S3ModelArtifacts']
 print(model_data)
-containers = 
-hosting_image = containers[boto3.Session().region_name]
+hosting_image = image_uris.retrieve(
+    region=boto3.Session().region_name, framework="image-classification"
+)
 primary_container = {
     'Image': hosting_image,
     'ModelDataUrl': model_data,
