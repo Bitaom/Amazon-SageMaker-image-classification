@@ -15,9 +15,9 @@ The codes are written with the Amazon SageMaker Python SDK library. The boto3 li
 
 The input of the algorithm is in augmented manifest format, referring to the location of images on the S3 bucket and their labels. The manifest file format is in JSON Lines in which each line represents one sample. SageMaker reads the training and validation data separately from different channels, so the training and validation manifest files are stored on different channels in the same bucket. The algorithm supports image/png, image/jpeg, for inference.
 
-## IMBA Image Classification
+## Image Classification
 
-We use SageMaker image classifier algorithm for this project. The first step is Fine-tuning the Image classification model, and passing the manifest files as the input to the model. The coding for training the classifier is available in [SageMaker\_image\_classification](https://console.aws.amazon.com/codesuite/codecommit/repositories/IMBA-image-classification/browse/refs/heads/main/--/SageMaker_image_classification?region=us-east-1)
+We use SageMaker image classifier algorithm for this project. The first step is Fine-tuning the Image classification model, and passing the manifest files as the input to the model. The coding for training the classifier is available in [SageMaker\_image\_classification](https://github.com/Bitaom/Amazon-SageMaker-image-classification/blob/main/SageMaker_image_classification.py)
 
 **Training parameters**
 
@@ -29,7 +29,7 @@ There are two kinds of parameters that need to be set for training. The first on
 
 ## SageMaker Model Creation
 
-After training the model with satisfactory accuracy we need to create a SageMaker Model from the training output. The output of this section is the model ARN which will be used for creating the endpoint ([SageMaker\_model\_creation](https://console.aws.amazon.com/codesuite/codecommit/repositories/IMBA-image-classification/browse/refs/heads/main/--/SageMaker_model_creation?region=us-east-1)).
+After training the model with satisfactory accuracy we need to create a SageMaker Model from the training output. The output of this section is the model ARN which will be used for creating the endpoint ([SageMaker\_model\_creation](https://github.com/Bitaom/Amazon-SageMaker-image-classification/blob/main/SageMaker_model_creation.py).
 
 ## Inference
 
@@ -43,5 +43,5 @@ To perform the inference, we first create an endpoint configuration, that descri
 
 ## Invoke a serverless endpoint
 
-In order to perform inference using a serverless endpoint, we must send an HTTP request to the endpoint. We use the InvokeEndpoint API [Endpoint Invocation](https://console.aws.amazon.com/codesuite/codecommit/repositories/IMBA-image-classification/browse/refs/heads/main/--/Endpoint%20Invocation?region=us-east-1), which makes a POST request to invoke the endpoint. The maximum request and response payload size for serverless invocations is 4 MB. As a result, the algorithm cannot take images larger than 4MB. Note that a cold start on the endpoint may delay the response time up to 4 minutes.
+In order to perform inference using a serverless endpoint, we must send an HTTP request to the endpoint. We use the InvokeEndpoint API [Endpoint Invocation](https://github.com/Bitaom/Amazon-SageMaker-image-classification/blob/main/Endpoint%20Invocation.py), which makes a POST request to invoke the endpoint. The maximum request and response payload size for serverless invocations is 4 MB. As a result, the algorithm cannot take images larger than 4MB. Note that a cold start on the endpoint may delay the response time up to 4 minutes.
 
