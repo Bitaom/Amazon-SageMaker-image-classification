@@ -29,7 +29,7 @@ There are two kinds of parameters that need to be set for training. The first on
 
 ## SageMaker Model Creation
 
-After training the model with satisfactory accuracy we need to create a SageMaker Model from the training output. The output of this section is the model ARN which will be used for creating the endpoint ([SageMaker\_model\_creation](https://github.com/Bitaom/Amazon-SageMaker-image-classification/blob/main/SageMaker_model_creation.py).
+After training the model with satisfactory accuracy we need to create a SageMaker Model from the training output. The output of this section is the model ARN which will be used for creating the endpoint ([SageMaker\_model\_creation](https://github.com/Bitaom/Amazon-SageMaker-image-classification/blob/main/SageMaker_model_creation.py)).
 
 ## Inference
 
